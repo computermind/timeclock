@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comments: MyText
+  punch_out: 2018-02-11 10:31:22
+
+two:
+  comments: MyText
+  punch_out: 2018-02-11 10:31:22
