@@ -1,4 +1,5 @@
-class JobsController < ApplicationController
+class EmployeesController < ApplicationController
+    
     
   before_action :find_employee, only: [:edit, :show, :update]
 
@@ -24,7 +25,7 @@ class JobsController < ApplicationController
     @employee = Employee.new(employee_params)
     @employee.creator = current_user
     if @employee.save
-      flash[:notice] = "A new job has been added"
+      flash[:notice] = "Account for #{@employee.last_name} has been added"
       redirect_to employee_path(@employee)
     else
       render 'new'
@@ -44,9 +45,9 @@ class JobsController < ApplicationController
 
   private
 
-  def job_params
+  def employee_params
     params.require(:employee).permit(:first_name, :middle_initial, :last_name, :government_entity, :position, :employee_phone, :employee_id_number,
-    :supervisor_name, :supervisor_phone, :human_resource_manager, :human_resource_phone, :creator_name, :status)
+    :supervisor_name, :supervisor_phone, :human_resource_manager, :human_resource_phone, :creator_name)
   end
 
   def find_employee
@@ -54,4 +55,5 @@ class JobsController < ApplicationController
   end
 
     
+
 end

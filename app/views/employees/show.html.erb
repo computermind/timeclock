@@ -1,0 +1,30 @@
+<p><%= link_to 'Back to Employee list', employees_path  %> </p>
+<p><%= link_to '[Edit/Update Employee Account]', edit_employee_path(@employee) %></p>
+<h3> Punches</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Total</th>
+    <th>IP Address</th>
+  </tr>
+  <% @employee.punches.each do |punch| %>
+    <tr>
+      <td><%= punch_in_date(punch.created_at) %> </td>
+      <td><%= punch_in_time(punch.created_at) %></td>
+      <td><%= punch_out_time(punch.punch_out) %></td>
+      <td> <%= punch.time_on_punch %> </td>
+      <td> <%=@employee.punches.last.origin_ip %> </td>
+     
+    </tr>
+  <% end %>
+</table>
+
+<h4>
+  Total Time on Job: <%= format_total_time(@employee.total_time_on_job) %>
+</h4>
+<div>
+  <%= render 'shared/punch_buttons', employee: @employee %>
+</div>

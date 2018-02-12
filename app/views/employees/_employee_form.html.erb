@@ -1,0 +1,58 @@
+<%= render 'shared/errors', object: @employee %>
+
+<%= form_for(@employee) do |f| %>
+  
+<div>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+</div>
+<div>
+  <%= f.label :middle_initial %>
+  <%= f.text_field :middle_initial %>
+</div>
+<div>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+</div>
+<div>
+  <%= f.label :government_entity%>
+  <%= f.text_field :government_entity %>
+</div>
+<div>
+  <%= f.label :position%>
+  <%= f.text_field :position %>
+</div>
+<div>
+  <%= f.label :employee_phone%>
+  <%= f.text_field :employee_phone %>
+</div>
+<div>
+  <%= f.label :employee_Id_Number %>
+  <%= f.number_field :employee_id_number %>
+</div>
+<div>
+  <%= f.label :supervisor_name %>
+  <%= f.text_field :supervisor_name %>
+</div>
+<div>
+  <%= f.label :supervisor_phone%>
+  <%= f.text_field :supervisor_phone %>
+</div>
+<div>
+  <%= f.label :human_resource_manager%>
+  <%= f.text_field :human_resource_manager%>
+</div>
+<div>
+  <%= f.label :human_resource_phone%>
+  <%= f.text_field :human_resource_phone%>
+</div>
+<div>
+  <%= f.label :created_by%>
+  <%= f.text_field :creator_name%>
+</div>
+<div>
+  <%= f.label :Active%>
+  <%= f.text_field :status%>
+</div>
+<%= f.submit @employee.new_record? ? 'Create Employee Account' : 'Update Employee Account', class: 'btn' %>    
+<% end %>

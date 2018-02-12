@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-    
   attr_accessor :email, :name, :password, :password_confirmation
-  #has_secure_password
+ # has_secure_password
  
 #  def show
-#    @user = User.find(:first, :conditions => ["lower(username) = ?", params[:id].downcase])
+#    @user = User.find(:first, :conditions => ["lower(username) = ?", params[:id].downcase!])
 #  end
   
   def new
@@ -12,11 +11,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:username , :password_digest, :password, :employee_id, :status, :job_id))
+    @user = User.new(params.require(:user).permit(:username, :password, :password_digest))
     
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Your account has been created."
+      flash[:notice] = "Your user account has been created."
       redirect_to root_path
     else
       render :new
