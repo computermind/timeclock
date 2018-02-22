@@ -1,6 +1,5 @@
 class EmployeesController < ApplicationController
     
-    
   before_action :find_employee, only: [:edit, :show, :update]
 
   def index
@@ -32,11 +31,12 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @employee.update(employee_params)
-      flash[:notice] = "#{@employee.last_name}, #{@employee.first_name} #{@employee.middle_initial} has been updated"
+      flash[:notice] = "#{@employee.last_name} has been updated"
       redirect_to employee_path(@employee)
     else
       render :edit
@@ -53,7 +53,6 @@ class EmployeesController < ApplicationController
   def find_employee
     @employee = Employee.find(params[:id])
   end
-
     
 
 end

@@ -9,25 +9,22 @@ class PunchesController < ApplicationController
     @punch.origin_ip = request.ip
     if @punch.save
       flash[:notice] = "You have punched in"
-      redirect_to employee_path  
+      redirect_to employee_path(@employee)  
     else
         render 'employees/index'
     end
   end
 
   def punch_out
-
     punch = @employee.current_punch_in
 
     if @employee.current_punch_in && punch.update(punch_out: Time.now)
       flash[:notice] = "You have punched out"
-      redirect_to employee_path  
+      redirect_to employee_path(@employee)  
     else
         flash[:error] = "You are not punched in, so you can't punch out."
         redirect_to employee_path(@employee)
     end
-
-
   end
 
   private

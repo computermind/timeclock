@@ -6,12 +6,11 @@
     <th>End Time</th>
     <th>Total</th> 
   </tr>
-  
     <tr>
       <td><%= punch_in_date(employee.punches.last.created_at) %> </td>
       <td><%= punch_in_time(employee.punches.last.created_at) %></td>
       <td><%= punch_out_time(employee.punches.last.punch_out) %></td>
-      <td> <%=employee.punches.last.time_on_punch %> </td>
+      <td> <%= employee.punches.last.time_on_punch %> </td>
     </tr>
 </table>
 <% end %>  

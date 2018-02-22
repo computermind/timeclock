@@ -51,8 +51,8 @@
   <%= f.text_field :creator_name%>
 </div>
 <div>
-  <%= f.label :Active%>
-  <%= f.text_field :status%>
+  <%= f.label :active, class: 'checkbox inline' %>
+  <%= f.check_box :status, class: 'checkbox' %>
 </div>
 <%= f.submit @employee.new_record? ? 'Create Employee Account' : 'Update Employee Account', class: 'btn' %>    
 <% end %>

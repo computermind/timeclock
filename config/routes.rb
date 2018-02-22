@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
-  root 'landings#index'
+#  root 'landings#index'
 
-#  root 'employees#index'
+  root 'employees#index'
+  
+#    root 'employees#show'
 
   get '/register', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-#  get ':username' => 'employees#show'
 
 
   resources :employees, except: [:destroy] do

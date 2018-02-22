@@ -1,6 +1,6 @@
 require 'bcrypt'
 class User < ApplicationRecord
-  attr_accessor :old_password, :email, :name, :password, :password_confirmation  
+  attr_accessor :old_password#, :email, :name, :password, :password_confirmation  
 
   # users.password_hash in the database is a :string
   include BCrypt
@@ -16,14 +16,16 @@ class User < ApplicationRecord
   has_one :employee
   has_many :punches, through: :employee
   
-
-  has_secure_password validations: true
+#has_secure_password validations: false
+#  has_secure_password validations: true
   
   validates :username, presence: :true, uniqueness: true
   validates :password, presence: :true, length: {minimum: 6}, on: :create
-  validates :password, presence: :true, length: {minimum: 6}, on: :update,  if: :password_match?, allow_blank: true
+#  validates :password, presence: :true, length: {minimum: 6}, on: :update,  if: :password_match?, allow_blank: true
 
+#  has_secure_password
   
+#  validates :password, length: { minimum: 6 }, allow_nil: true  
 
  
   def password_match?
