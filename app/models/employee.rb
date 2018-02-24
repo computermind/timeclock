@@ -15,8 +15,15 @@ class Employee < ApplicationRecord
   validates :creator_name, presence: true
 
 
-  def deactivate_status
-    self.status = false
+#  def deactivate_status
+#    self.status = false
+#  end
+
+  after_create :set_status
+
+
+  def set_status
+    self.status = true
   end
 
   def current_punch_in

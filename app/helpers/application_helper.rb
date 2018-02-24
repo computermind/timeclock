@@ -18,10 +18,10 @@ module ApplicationHelper
     punch_out_at.strftime("%l:%M:%S%p") if punch_out_at
   end
 
-  def total_time_on_job(job)
+  def total_time_on_job(employee)
     @total_time = 0 # set up the total time variable
 
-    job.punches.each do |punch|
+    employee.punches.each do |punch|
       
         @total_time
       

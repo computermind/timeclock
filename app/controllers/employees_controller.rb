@@ -10,7 +10,7 @@ class EmployeesController < ApplicationController
       @punch = Punch.new
     end
   end
-
+  
 
   def show
     @punch = Punch.new
@@ -25,7 +25,7 @@ class EmployeesController < ApplicationController
     @employee.creator = current_user
     if @employee.save
       flash[:notice] = "Account for #{@employee.last_name} has been added"
-      redirect_to employee_path(@employee)
+      redirect_to employees_path
     else
       render 'new'
     end

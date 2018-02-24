@@ -1,24 +1,20 @@
-
- 
-  
   <div class="well">
     <h4>Hello <%= current_user.username %></h4>
-    <% if @user.employee == 0 %>
+    <% if @user.employees == 0 %>
       You don't have any employee records. 
     <%= link_to 'Add New Employee Account', new_employee_path, class: 'btn btn-info' %>
     <% else %>
-      Your are active. Please sign in.
+      Your are active.
     <% end %>
     <br><br>
     <%= link_to 'Add New Employee Account', new_employee_path, class: 'btn btn-info' %>
   </div>
 
 
-<% @user.employee do |employee| %>
-
+<% @user.employees.each do |employee|  %>
 <div class="well span8">
   <div>
-    <h4>Employee: <%= link_to employee.name, employee_path(employee) %></h4>
+    <h4>Employee: <%= link_to employee.last_name, employee_path(employee) %></h4>
     <p>
       <strong>Government Entity:</strong> <%= employee.government_entity %>
     </p>
